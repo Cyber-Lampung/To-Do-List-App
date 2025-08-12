@@ -9,7 +9,7 @@ function Navbar() {
   });
 
   close.addEventListener("click", () => {
-    navbar.style.top = "900px";
+    navbar.style.top = "1500px";
     navbar.style.transition = "all 0.5s ease";
   });
 }
@@ -28,7 +28,7 @@ mouseover.onmouseover = () => {
   rotate.style.transform = "rotate(270deg)";
 
   if (check.checked) {
-    addList.style.height = "200px";
+    addList.style.height = "150px";
     addList.style.opacity = "1";
   }
 
@@ -48,18 +48,98 @@ mouseover.onmouseleave = () => {
 };
 
 function HandlerInput() {
+  //lebar layar
+
+  const Layar = window.innerWidth;
+  console.log(Layar);
+
   const closeInputTugas = document.getElementById("closeInput");
   const boxInputTugas = document.getElementById("boxInputTugas");
 
-  closeInputTugas.addEventListener("click", () => {
-    boxInputTugas.classList.add("hidden");
-  });
+  if (Layar >= 400 && Layar <= 600) {
+    closeInputTugas.addEventListener("click", () => {
+      boxInputTugas.style.top = "1500px";
+      boxInputTugas.style.transition = "all 1s ease";
+    });
 
-  // click triger element
-  const pencil = document.getElementById("pencil");
+    // click triger element
+    const pencil = document.getElementById("pencil");
 
-  pencil.addEventListener("click", () => {
-    boxInputTugas.classList.remove("hidden");
-  });
+    pencil.addEventListener("click", () => {
+      boxInputTugas.style.top = "660px";
+      boxInputTugas.style.transition = "all 1s ease";
+    });
+  } else if (Layar <= 392) {
+    closeInputTugas.addEventListener("click", () => {
+      boxInputTugas.style.top = "1500px";
+      boxInputTugas.style.transition = "all 1s ease";
+    });
+
+    // click triger element
+    const pencil = document.getElementById("pencil");
+
+    pencil.addEventListener("click", () => {
+      boxInputTugas.style.top = "580px";
+      boxInputTugas.style.transition = "all 1s ease";
+    });
+  } else if (Layar === 393) {
+    closeInputTugas.addEventListener("click", () => {
+      boxInputTugas.style.top = "1500px";
+      boxInputTugas.style.transition = "all 1s ease";
+    });
+
+    // click triger element
+    const pencil = document.getElementById("pencil");
+
+    pencil.addEventListener("click", () => {
+      boxInputTugas.style.top = "690px";
+      boxInputTugas.style.transition = "all 1s ease";
+    });
+  }
 }
 HandlerInput();
+
+function HandlerInputFile() {
+  //lebar layar
+
+  const Layar = window.innerWidth;
+
+  const closeInputTugas = document.getElementById("closeInputFile");
+  const boxInputTugasFile = document.getElementById("boxInputFile");
+
+  // click triger element
+  const file = document.getElementById("File");
+
+  if (Layar >= 400 && Layar <= 600) {
+    closeInputTugas.addEventListener("click", () => {
+      boxInputTugasFile.style.top = "1500px";
+      boxInputTugasFile.style.transition = "all 1s ease";
+    });
+
+    file.addEventListener("click", () => {
+      boxInputTugasFile.style.top = "660px";
+      boxInputTugasFile.style.transition = "all 1s ease";
+    });
+  } else if (Layar <= 392) {
+    closeInputTugas.addEventListener("click", () => {
+      boxInputTugasFile.style.top = "1500px";
+      boxInputTugasFile.style.transition = "all 1s ease";
+    });
+
+    file.addEventListener("click", () => {
+      boxInputTugasFile.style.top = "580px";
+      boxInputTugasFile.style.transition = "all 1s ease";
+    });
+  } else if (Layar === 393) {
+    closeInputTugas.addEventListener("click", () => {
+      boxInputTugasFile.style.top = "1500px";
+      boxInputTugasFile.style.transition = "all 1s ease";
+    });
+
+    file.addEventListener("click", () => {
+      boxInputTugasFile.style.top = "690px";
+      boxInputTugasFile.style.transition = "all 1s ease";
+    });
+  }
+}
+HandlerInputFile();
