@@ -14,7 +14,7 @@ function RenderHalaman() {
     const Render = `
   
        <div
-        class="border-2 border-white w-[90%] m-auto mt-5 p-2 rounded-lg flex items-center gap-6"
+        class="DelItems border-2 border-white w-[90%] m-auto mt-5 p-2 rounded-lg flex items-center gap-6"
         >
             <div class="iconCheck">
                 <input type="checkbox" class="selesaicheck text-2xl" data-index="${index}" ${
@@ -32,7 +32,7 @@ function RenderHalaman() {
                 </label>
             </div>
             <div class="trash">
-                <i class="trashIcon bi-trash-fill text-white text-2xl"></i>
+                <i class="trashIcon bi-trash-fill text-white text-2xl" id="trash"></i>
             </div>
         </div>
 
@@ -65,7 +65,13 @@ BtnKirimInput.addEventListener("click", () => {
   const Judul = document.getElementById("Judul").value;
   const Description = document.getElementById("Description").value;
 
+  if (!Judul || !Description) {
+    alert("data Harus diisi");
+    return;
+  }
+
   const ValueBaru = { Judul, Description };
+
   //   get data items jika ada
 
   const get = localStorage.getItem("list");
@@ -77,6 +83,10 @@ BtnKirimInput.addEventListener("click", () => {
   localStorage.setItem("list", JSON.stringify(check));
 
   RenderHalaman();
+
+  setTimeout(() => {
+    window.location.href = "";
+  }, 3000);
 });
 
 window.onload = RenderHalaman();
