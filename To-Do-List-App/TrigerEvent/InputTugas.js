@@ -10,22 +10,25 @@ function RenderHalaman() {
 
   ItemsRender.innerHTML = "";
 
-  checkData.forEach((data) => {
+  checkData.forEach((data, index) => {
     const Render = `
   
        <div
-        id="List"
         class="border-2 border-white w-[90%] m-auto mt-5 p-2 rounded-lg flex items-center gap-6"
         >
             <div class="iconCheck">
-                <input type="checkbox" class="text-2xl" id="selesai" />
+                <input type="checkbox" class="selesaicheck text-2xl" data-index="${index}" ${
+      data.done ? "checked" : ""
+    }/>
             </div>
             <div class="isi w-[70%]">
-                <label for="selesai">
-                <h1 class="text-xl font-bold text-white" id="selesai">${data.Judul}</h1>
-                <p class="text-sm text-white font-semibold truncate">
-                    ${data.Description}
-                </p>
+                <label for="peer">
+                  <h1 class="text-xl font-bold text-white peer-has-checked:hidden judulTugas" >
+                    ${data.Judul}
+                  </h1>
+                  <p class="text-sm text-white font-semibold truncate">
+                      ${data.Description}
+                  </p>
                 </label>
             </div>
             <div class="trash">
@@ -36,6 +39,23 @@ function RenderHalaman() {
     `;
 
     ItemsRender.innerHTML += Render;
+  });
+
+  // pasang event listiner sehabis di render
+
+  document.querySelectorAll(".selesaicheck").forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      const index = this.getAttribute("data-index");
+      checkData[index].done = this.checked;
+      localStorage.setItem("list", JSON.stringify(checkData));
+
+      const parent =
+        this.parentElement.nextElementSibling.querySelector(".judulTugas");
+
+      parent.style.textDecoration = this.checked
+        ? "line-through black 2px"
+        : "none";
+    });
   });
 }
 

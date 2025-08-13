@@ -66,7 +66,7 @@ function HandlerInput() {
     const pencil = document.getElementById("pencil");
 
     pencil.addEventListener("click", () => {
-      boxInputTugas.style.top = "660px";
+      boxInputTugas.style.top = "490px";
       boxInputTugas.style.transition = "all 1s ease";
     });
   } else if (Layar <= 392) {
@@ -79,7 +79,7 @@ function HandlerInput() {
     const pencil = document.getElementById("pencil");
 
     pencil.addEventListener("click", () => {
-      boxInputTugas.style.top = "580px";
+      boxInputTugas.style.top = "430px";
       boxInputTugas.style.transition = "all 1s ease";
     });
   } else if (Layar === 393) {
@@ -92,7 +92,7 @@ function HandlerInput() {
     const pencil = document.getElementById("pencil");
 
     pencil.addEventListener("click", () => {
-      boxInputTugas.style.top = "690px";
+      boxInputTugas.style.top = "530px";
       boxInputTugas.style.transition = "all 1s ease";
     });
   }
