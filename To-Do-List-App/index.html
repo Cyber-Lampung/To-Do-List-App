@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
 
-  <body class="bg-violet-200 overflow-hidden">
+  <body class="overflow-hidden lightmode">
     <!-- header -->
     <header class="p-6 flex justify-between items-center">
       <div class="home flex items-center gap-4 text-xl">
@@ -39,6 +39,19 @@
           class="close bi-x text-5xl absolute top-4 right-5 cursor-pointer"
           id="close"
         ></i>
+
+        <div class="darkMode flex justify-center mt-10">
+          <div
+            class="w-25 h-8 rounded-lg border-2 border-black items-center flex justify-around"
+          >
+            <label for="darkmode" class="flex gap-10">
+              <i class="matahari bi-sun"></i>
+
+              <i class="mon bi-moon"></i>
+            </label>
+            <input type="checkbox" id="darkmode" hidden />
+          </div>
+        </div>
       </nav>
       <div>
         <label for="menu">
@@ -193,6 +206,7 @@
 
     <script src="handler.js"></script>
     <script src="./TrigerEvent/InputTugas.js"></script>
+    <script src="./handelDarkMode/darkmode.js"></script>
     <script type="module" src="./DeleteItems/Delete.js"></script>
   </body>
 </html>
